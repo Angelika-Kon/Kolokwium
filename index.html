@@ -19,19 +19,32 @@
             align-items: center;
 
         }
+        .cells{
+            flex-direction: row;
+            display: flex;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-    <div class="cell">1</div>
+        <div class="cells" v-for='r in rows'>
+            <div v-for='c in columns'>
+    <div class="cell">
+        {{r}},{{c}}
+    </div>
+</div>
+</div>
     {{ message }}
     </div>
+
 
     <script>
     var app = new Vue({
         el: '#app',
         data: {
-            message: 'Powodzenia'
+            message: 'Powodzenia',
+            rows:10,
+            columns:10
         }
     })
     </script>
