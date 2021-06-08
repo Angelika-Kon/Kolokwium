@@ -17,6 +17,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor:pointer;
 
         }
         .cells{
@@ -33,7 +34,7 @@
     <div id="app">
         <div class="cells" v-for='r in rows'>
             <div v-for='c in columns'>
-    <div class="cell" :class='{active:(active[1]==c  && active[0]==r)}'>
+    <div class="cell" @click="choice(r,c)" :class='{active:isActiv(r,c)}'>
         {{r}},{{c}}
     </div>
 </div>
@@ -50,6 +51,14 @@
             rows:10,
             columns:10,
             active:[1,1]
+        },
+        methods:{
+            choice(r,c){
+                this.active[1]=c;
+                this.active[0]=r;
+            },
+            isActiv(r,c){
+            }
         }
     })
     </script>
